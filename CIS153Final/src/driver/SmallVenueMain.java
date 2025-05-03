@@ -1,9 +1,9 @@
 /**
 *Kevin Van Portfliet kmvanportfliet@dmacc.edu
-*CIS171; 23660. Tuesday 1250-1425
-*Due:    Date:
-*PROJECT:
-*DESCRIPTION:
+*CIS153; online
+*Due: 05/04/2025 
+*PROJECT:Final
+*DESCRIPTION: TicketBooking app
 *
 */
 
@@ -29,7 +29,7 @@ public class SmallVenueMain
 		VenueConfig venueConfig = new VenueConfig(50, 10, 50.00, 20.00);
 		//create reservationManager to handle bookings
 		ReservationManager reservationManager = new ReservationManager(venueConfig);
-		//gui launcher
+		//gui launcher on event
 		SwingUtilities.invokeLater(new Runnable()
 			{
 

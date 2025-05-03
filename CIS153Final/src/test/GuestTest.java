@@ -23,5 +23,14 @@ class GuestTest
 		Guest guest = new Guest("KevinBob", 1);
 		assertEquals("Guest Number: 1, Guest: KevinBob", guest.toString());
 	}
+	
+	//tests the getters
+	@Test
+	public void testGuestGets()
+	{
+		Guest guest = new Guest("KVP", 5);
+		assertEquals("KVP", guest.getName());
+		assertEquals(5, guest.getBookingNumber());
+	}
 
 }

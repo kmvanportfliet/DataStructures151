@@ -5,8 +5,8 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import model.VenueConfig;
-
+import org.junit.jupiter.api.BeforeEach;
+import model.*;
 
 /**
  * unit test for venueconfig class
@@ -14,6 +14,14 @@ import model.VenueConfig;
  */
 class VenueConfigTest 
 {
+		private ReservationManager manager;
+		
+		@BeforeEach
+		public void setUp()
+		{
+			VenueConfig config = new VenueConfig(50, 10, 100.0, 50.0);
+			manager = new ReservationManager(config);
+		}
 	
 		/**
 		 * tests good seat config
@@ -56,5 +64,22 @@ class VenueConfigTest
 		{
 			VenueConfig config = new VenueConfig(50, 15, 100.0, 50.0);
 			assertEquals(35, config.getGeneralAdmissionSeats());
+		}
+		
+		//tests for duplicate test name
+		@Test
+		public void testDuplicateGuestNamesAllowed() 
+		{
+			assertTrue(manager.bookGuest("KVAN"));
+			assertTrue(manager.bookGuest("KVAN"));
+			assertEquals(2, manager.getBookingQueue().size());
+		}
+		
+		//tests for empty list
+		@Test
+		public void testSortListEmpty()
+		{
+			var sorted = manager.getSortedGuestListByName();
+			assertTrue(sorted.isEmpty());
 		}
 }
