@@ -3,6 +3,9 @@
 package model;
 
 
+/**
+ * venueconfig class settings for samll venue
+ */
 public class VenueConfig 
 {
 	private int totalSeats;
@@ -10,6 +13,14 @@ public class VenueConfig
 	private double vipPrice;
 	private double generalPrice;
 	
+	
+	/**
+	 * construct for venueconfigue
+	 * @param totalSeats
+	 * @param vipSeats
+	 * @param vipPrice
+	 * @param generalPrice
+	 */
 	public VenueConfig(int totalSeats, int vipSeats, double vipPrice, double generalPrice)
 	{
 		setTotalSeats(totalSeats);
@@ -18,11 +29,13 @@ public class VenueConfig
 		this.generalPrice = generalPrice;
 	}
 	
+	//gets the number of seats configured
 	public int getTotalSeats() 
 	{
 		return totalSeats;
 	}
 	
+	//sets total number of seats
 	public void setTotalSeats(int totalSeats)
 	{
 	    if (totalSeats > 0 && totalSeats <= 50)
@@ -35,12 +48,13 @@ public class VenueConfig
 	    }
 	}
 
-	
+	//returns vip sets
 	public int getVipSeats()
 	{
 		return vipSeats;
 	}
 	
+	//sets the number of vipseats
 	public void setVipSeats(int vipSeats)
 	{
 		if (vipSeats >+ 0 && vipSeats <= totalSeats)
@@ -53,27 +67,41 @@ public class VenueConfig
 		}
 	}
 	
+	//get vip price 
 	public double getVipPrice()
 	{
 		return vipPrice;
 	}
+	//set vip price
 	public void setVipPrice(double vipPrice)
 	{
 		this.vipPrice = vipPrice;
 	}
+	//get price of general seat
 	public double getGeneralPrice()
 	{
 		return generalPrice;
 	}
+	
+	//set price of general seat
 	public void setGeneralPrice(double generalPrice)
 	{
 		this.generalPrice = generalPrice;
 	}
+	
+	/**
+	 * calcs rutrns numb of general admmission seats
+	 * @return
+	 */
 	public int getGeneralAdmissionSeats()
 	{
 		return totalSeats - vipSeats;
 	}
 	
+	
+	/**
+	 *string return of venue config
+	 */
 	@Override
 	public String toString()
 	{
